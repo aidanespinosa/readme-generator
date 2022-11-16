@@ -8,9 +8,12 @@
 //github username prompt is added as a link to github under 'questions' section
 //email address prompt links under questions section with info on contacting
 //Table of Contents section directs user to corresponding section inside of readme file.
-const inquirer = require("inquirer");
-const fs = require("fs");
 
+//import inquirer module
+const inquirer = require("inquirer");
+// import fs module
+const fs = require("fs");
+//call inquirer prompt which takes in user data
 inquirer
   .prompt([
     {
@@ -124,6 +127,7 @@ inquirer
       },
     },
   ])
+  //promise chain which takes user data to make a template for the readme file
   .then(
     ({
       title,
@@ -136,12 +140,12 @@ inquirer
       email,
     }) => {
       const data = `# ${title}
-  * [Installation]{#installation}
-  * [Usage]{#usage}
-  * [License]{#license}
-  * [Contributors]{#contribute}
-  * [Tests]{#tests}
-  * [Questions]{#questions}
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [License](#license)
+  * [Contributors](#contribute)
+  * [Tests](#tests)
+  * [Questions](#questions)
   # Installation
   ${installation}
   ## Usage
@@ -155,10 +159,11 @@ inquirer
   ## Questions
   * Git Hub: ${github}
   * Email: ${email}`;
+      //call function that takes in name of readme file and responses from the prompt as arguments
       newReadMe(title, data);
     }
   );
-
+//function that writes a new file using the responses as data
 function newReadMe(projectName, data) {
   fs.writeFile(`${projectName}.md`, data, (err) => {
     if (err) {
