@@ -33,3 +33,7 @@ No tests yet
 
 - Git Hub: https://github.com/aidanespinosa
 - Email: aidanespinosa3@gmail.com
+
+## Link to how-to-video
+
+https://drive.google.com/file/d/1PoMamjkmuG9W4ExWyxtgkm6twmeuDldC/view
